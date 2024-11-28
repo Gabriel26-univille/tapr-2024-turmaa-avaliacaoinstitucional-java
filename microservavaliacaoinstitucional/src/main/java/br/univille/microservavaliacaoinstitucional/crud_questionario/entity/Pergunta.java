@@ -9,14 +9,14 @@ import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 
 @Container(containerName = "questionario", autoCreateContainer = true)
-public class Questionario {
+public class Pergunta {
     @Id
     @PartitionKey
     @GeneratedValue
     private String id;
     private String nome;
     private LocalDateTime dataCriacao;
-    private List<Pergunta> perguntas;
+    private List<Alternativa> alternativas;
 
     public String getId(){
         return id;
