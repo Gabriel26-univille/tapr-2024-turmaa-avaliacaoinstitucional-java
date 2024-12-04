@@ -14,56 +14,56 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.univille.microservavaliacaoinstitucional.crud_questionario.entity.Questionario;
-import br.univille.microservavaliacaoinstitucional.crud_questionario.service.QuestionarioService;
+import br.univille.microservavaliacaoinstitucional.aplicar_questionario.entity.Resposta;
+import br.univille.microservavaliacaoinstitucional.aplicar_questionario.service.RespostaService;
 
 @RestController
-@RequestMapping("/api/v1/questionarios")
+@RequestMapping("/api/v1/aplicarQuestionario")
 public class RespostaAPIController {
     @Autowired
-    private QuestionarioService service;
+    private RespostaService service;
 
     @GetMapping
-    public ResponseEntity<List<Questionario>> get(){
-        var listaQuestionarios = service.getAll();
+    public ResponseEntity<List<Resposta>> get(){
+        var listaRespostas = service.getAll();
 
-        return new ResponseEntity<List<Questionario>>(listaQuestionarios, HttpStatus.OK);
+        return new ResponseEntity<List<Resposta>>(listaRespostas, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Questionario> post(@RequestBody Questionario questionario){
-        if (questionario == null){
+    public ResponseEntity<Resposta> post(@RequestBody Resposta resposta){
+        if (resposta == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        var questionarioSalvo = service.save(questionario);
-        return new ResponseEntity<Questionario>(questionarioSalvo, HttpStatus.OK);
+        var respostaSalvo = service.save(resposta);
+        return new ResponseEntity<Resposta>(respostaSalvo, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Questionario> put(
+    public ResponseEntity<Resposta> put(
                     @PathVariable("id") String id,
-                    @RequestBody Questionario questionario){
-        if(questionario == null || id == "" || id == null){
+                    @RequestBody Resposta resposta){
+        if(resposta == null || id == "" || id == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        questionario = service.update(id, questionario);
-        if(questionario == null){
+        resposta = service.update(id, resposta);
+        if(resposta == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Questionario>(questionario,HttpStatus.OK);
+        return new ResponseEntity<Resposta>(resposta,HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Questionario> delete(
+    public ResponseEntity<Resposta> delete(
                     @PathVariable("id") String id){
         if(id == "" || id == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        var questionario = service.delete(id);
-        if(questionario == null){
+        var resposta = service.delete(id);
+        if(resposta == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Questionario>(questionario,HttpStatus.OK);
+        return new ResponseEntity<Resposta>(resposta,HttpStatus.OK);
     }
 
 }

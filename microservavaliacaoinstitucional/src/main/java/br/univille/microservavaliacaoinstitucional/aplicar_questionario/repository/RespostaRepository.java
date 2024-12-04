@@ -3,9 +3,9 @@ package br.univille.microservavaliacaoinstitucional.aplicar_questionario.reposit
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.univille.microservavaliacaoinstitucional.crud_questionario.entity.Questionario;
+import br.univille.microservavaliacaoinstitucional.aplicar_questionario.entity.Resposta;
 
 @Repository
-public interface RespostaRepository extends CrudRepository<Questionario,String>{
+public interface RespostaRepository extends CrudRepository<Resposta,String>{
     
 }

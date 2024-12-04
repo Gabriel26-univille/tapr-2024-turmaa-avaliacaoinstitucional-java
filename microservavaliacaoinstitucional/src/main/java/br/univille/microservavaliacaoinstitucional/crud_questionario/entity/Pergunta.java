@@ -8,14 +8,13 @@ import com.azure.spring.data.cosmos.core.mapping.Container;
 import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 
-@Container(containerName = "questionario", autoCreateContainer = true)
+@Container(containerName = "pergunta", autoCreateContainer = true)
 public class Pergunta {
     @Id
     @PartitionKey
     @GeneratedValue
     private String id;
-    private String nome;
-    private LocalDateTime dataCriacao;
+    private String titulo;
     private List<Alternativa> alternativas;
 
     public String getId(){
@@ -26,19 +25,20 @@ public class Pergunta {
         this.id = id;
     }
 
-    public String getNome(){
-        return nome;
+    public String getTitulo(){
+        return titulo;
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setTitulo(String titulo){
+        this.titulo = titulo;
     }
 
-    public LocalDateTime getdataCriacao(){
-        return dataCriacao;
+    public List<Alternativa> getAlternativas() {
+        return alternativas;
     }
 
-    public void setdataCriacao(LocalDateTime dataCriacao){
-        this.dataCriacao = dataCriacao;
+    public void setAlternativas(List<Alternativa> alternativas) {
+        this.alternativas = alternativas;
     }
+    
 }

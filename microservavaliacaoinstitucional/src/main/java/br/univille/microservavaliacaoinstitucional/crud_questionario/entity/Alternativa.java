@@ -1,7 +1,6 @@
 package br.univille.microservavaliacaoinstitucional.crud_questionario.entity;
 
 import java.util.UUID;
-import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import com.azure.spring.data.cosmos.core.mapping.Container;
 import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
@@ -13,8 +12,8 @@ public class Alternativa {
     @PartitionKey
     @GeneratedValue
     private String id;
-    private String nome;
-    private LocalDateTime dataCriacao;
+    private String descricao;
+    private boolean correto;
 
     public String getId(){
         return id;
@@ -24,19 +23,19 @@ public class Alternativa {
         this.id = id;
     }
 
-    public String getNome(){
-        return nome;
+    public String getDescricao(){
+        return descricao;
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
     }
 
-    public LocalDateTime getdataCriacao(){
-        return dataCriacao;
+    public boolean getCorreto(){
+        return correto;
     }
 
-    public void setdataCriacao(LocalDateTime dataCriacao){
-        this.dataCriacao = dataCriacao;
+    public void setCorreto(boolean correto){
+        this.correto = correto;
     }
 }

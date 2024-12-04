@@ -41,4 +41,13 @@ public class Questionario {
     public void setdataCriacao(LocalDateTime dataCriacao){
         this.dataCriacao = dataCriacao;
     }
+
+    public List<Pergunta> getPerguntas(){
+        return perguntas;
+    }
+
+    public void setPerguntas(List<Pergunta> perguntas){
+        this.perguntas = perguntas;
+    }
+    
 }
