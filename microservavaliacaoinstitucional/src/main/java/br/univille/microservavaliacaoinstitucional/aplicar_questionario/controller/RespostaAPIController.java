@@ -18,7 +18,7 @@ import br.univille.microservavaliacaoinstitucional.aplicar_questionario.entity.R
 import br.univille.microservavaliacaoinstitucional.aplicar_questionario.service.RespostaService;
 
 @RestController
-@RequestMapping("/api/v1/aplicarQuestionario")
+@RequestMapping("api/v1/aplicarQuestionario")
 public class RespostaAPIController {
     @Autowired
     private RespostaService service;
