@@ -32,6 +32,9 @@ Content-Type: application/json
     ]
 }
 
+###Buscar todas as Respostas
+GET http://localhost:8080/api/v1/aplicarQuestionario
+
 ###Inserir uma Resposta
 POST http://localhost:8080/api/v1/aplicarQuestionario
 Content-Type: application/json
