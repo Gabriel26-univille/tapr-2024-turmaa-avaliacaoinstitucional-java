@@ -6,5 +6,39 @@ POST http://localhost:8080/api/v1/questionarios
 Content-Type: application/json
 
 {
-    "nome": "teste"
+    "nome": "teste",
+    "perguntas": 
+    [
+        {
+            "id":"0", 
+            "titulo":"pergunta1",
+            "alternativas":
+                [
+                    {"id":"0", "descricao":"alt1", "correto":false},
+                    {"id":"1", "descricao":"alt2", "correto":true},
+                    {"id":"2", "descricao":"alt3", "correto":false}
+                ]
+        },
+        {
+            "id":"1", 
+            "titulo":"pergunta2",
+            "alternativas":
+                [
+                    {"id":"0", "descricao":"alt1", "correto":false},
+                    {"id":"1", "descricao":"alt2", "correto":true},
+                    {"id":"2", "descricao":"alt3", "correto":false}
+                ]
+        }
+    ]
+}
+
+###Inserir uma Resposta
+POST http://localhost:8080/api/v1/aplicarQuestionario
+Content-Type: application/json
+
+{
+    "questionario":{"id":"0","nome": "teste2"},
+    "aluno":"Aluno",
+    "professor":"Professor",
+    "materia":"Materia"
 }
